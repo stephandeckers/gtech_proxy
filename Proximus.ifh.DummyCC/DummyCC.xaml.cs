@@ -1,12 +1,12 @@
 ﻿/**
- * @Name pxs.PostAndIntegrate.xaml.cs
+ * @Name DummyCC.xaml.cs
  * @Purpose 
- * @Date 31 March 2023, 07:23:36
+ * @Date 06 April 2023, 19:40:14
  * @Author S.Deckers
  * @Description 
  */
 
-namespace Proximus.ifh.SwapInnerDucts
+namespace Proximus.ifh.DummyCC
 {
 	#region -- Using directives --
 	using System;
@@ -25,10 +25,10 @@ namespace Proximus.ifh.SwapInnerDucts
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class SwapInnerDuctsController : IGTCustomCommandModeless
+	public partial class DummyCCController : IGTCustomCommandModeless
 	{
-		private SwapInnerDuctsWindow	_SwapInnerDuctsWindow;
-		private SwapInnerDuctsModel		_SwapInnerDuctsModel;
+		private DummyCCWindow	_Window;
+		private DummyCCModel		_Model;
 
 		public IGTCustomCommandHelper CustomCommandHelper	{	get; set; }
 
@@ -38,15 +38,15 @@ namespace Proximus.ifh.SwapInnerDucts
 
 			this.CustomCommandHelper = CustomCommandHelper;
 
-			this._SwapInnerDuctsModel	= new SwapInnerDuctsModel	( ) { Name = "Pietje Puk", Age = 34 };
-			this._SwapInnerDuctsWindow	= new SwapInnerDuctsWindow	( );
-			this._SwapInnerDuctsWindow.DataContext = this._SwapInnerDuctsModel;
+			this._Model	= new DummyCCModel	( ) { Name = "Pietje Puk", Age = 34 };
+			this._Window	= new DummyCCWindow	( );
+			this._Window.DataContext = this._Model;
 
-			new System.Windows.Interop.WindowInteropHelper( _SwapInnerDuctsWindow).Owner = this.GTApp.ApplicationWindow.Handle;
-			this._SwapInnerDuctsWindow.Show( );
+			new System.Windows.Interop.WindowInteropHelper( _Window).Owner = this.GTApp.ApplicationWindow.Handle;
+			this._Window.Show( );
 
-			this._SwapInnerDuctsWindow.Closed			+= _SwapInnerDuctsWindow_Closed;
-			this._SwapInnerDuctsWindow.button1.Click	+= Button1_Click;
+			this._Window.Closed			+= _Window_Closed;
+			this._Window.button1.Click	+= Button1_Click;
         }
 
 		private void Button1_Click( object sender, RoutedEventArgs e )
@@ -57,7 +57,7 @@ namespace Proximus.ifh.SwapInnerDucts
 			MessageBox.Show( "Y4", caption:"Changed it again", button:MessageBoxButton.YesNoCancel, icon:MessageBoxImage.Information);
 		}
 
-		private void _SwapInnerDuctsWindow_Closed( object sender, EventArgs e )
+		private void _Window_Closed( object sender, EventArgs e )
 		{
 			d.WriteLine( string.Format( "{0}.{1} ({2}):{3}", GetType().Name, System.Reflection.MethodInfo.GetCurrentMethod( ).Name, Global.CallCount++, string.Empty));
 
@@ -124,9 +124,9 @@ namespace Proximus.ifh.SwapInnerDucts
         }
 	}
 
-	public partial class SwapInnerDuctsWindow : Window
+	public partial class DummyCCWindow : Window
 	{
-		public SwapInnerDuctsWindow( )
+		public DummyCCWindow( )
 		{
 			d.WriteLine( string.Format( "{0}.{1}[{2}] ({3}):{4}", GetType().Name, System.Reflection.MethodInfo.GetCurrentMethod( ).Name, System.Threading.Thread.CurrentThread.ManagedThreadId, Global.CallCount++, string.Empty));
 			InitializeComponent( );
@@ -158,7 +158,7 @@ namespace Proximus.ifh.SwapInnerDucts
 		}
 	}
 
-	public partial class SwapInnerDuctsModel
+	public partial class DummyCCModel
 	{
 		public string	Name	{ get; set; }
 		public int		Age		{ get; set; }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proximus.ifh.SwapInnerDucts", "Proximus.ifh.SwapInnerDucts\Proximus.ifh.SwapInnerDucts.csproj", "{0B2C899B-54DF-42D0-9185-860BB500761F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proximus.ifh.DummyCC", "Proximus.ifh.DummyCC\Proximus.ifh.DummyCC.csproj", "{0B2C899B-54DF-42D0-9185-860BB500761F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
